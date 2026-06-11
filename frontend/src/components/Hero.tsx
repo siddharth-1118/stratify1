@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Hero() {
   return (
     <section
@@ -12,7 +13,7 @@ export default function Hero() {
       "
     >
       <p className="text-green-400 uppercase tracking-[0.25em] mb-4 text-xs sm:text-sm">
-        AI Investment Intelligence
+        AI Transformation Advisor
       </p>
 
       <h1
@@ -26,9 +27,9 @@ export default function Hero() {
           leading-tight
         "
       >
-        Predict AI ROI.
+        Turn AI Investments Into
         <br />
-        Drive Smarter Investments.
+        Measurable Business Results.
       </h1>
 
       <p
@@ -40,17 +41,43 @@ export default function Hero() {
           md:text-lg
         "
       >
-        Analyze business outcomes, evaluate AI adoption,
-        and generate executive-level strategy reports.
+        Evaluate AI initiatives, benchmark against industry leaders,
+        predict success probability, and receive executive-level
+        transformation guidance.
       </p>
 
       <div className="mt-10 flex flex-col sm:flex-row gap-4">
-        <button className="bg-green-500 text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
-          Generate Strategy
-        </button>
+        <Link
+          href="/signup"
+          className="
+    bg-green-500
+    text-black
+    px-8
+    py-4
+    rounded-full
+    font-semibold
+    hover:scale-105
+    transition-all
+    duration-300
+  "
+        >
+          Start Assessment
+        </Link>
 
-        <button className="border border-zinc-700 px-8 py-4 rounded-full hover:bg-zinc-900 transition">
-          View Demo →
+        <button
+          className="
+      border
+      border-zinc-700
+      px-8
+      py-4
+      rounded-full
+      hover:bg-zinc-900
+      hover:border-zinc-600
+      transition-all
+      duration-300
+    "
+        >
+          Explore Platform →
         </button>
       </div>
     </section>

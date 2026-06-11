@@ -1,29 +1,34 @@
 export default function FeaturesSection() {
     const features = [
         {
-            title: "ROI Prediction",
+            title: "AI Success Probability",
             description:
-                "Predict expected returns from AI investments using machine learning models.",
+                "Predict the likelihood of achieving AI transformation goals using machine learning and organizational readiness indicators.",
         },
         {
-            title: "Business Impact Analysis",
+            title: "Industry Benchmarking",
             description:
-                "Estimate cost savings, revenue impact, and productivity improvements.",
+                "Compare your organization against industry averages, top performers, and similar companies.",
         },
         {
-            title: "AI Recommendations",
+            title: "Progress Tracking",
             description:
-                "Receive industry-specific AI adoption recommendations tailored to business needs.",
+                "Track ROI, productivity gains, cost savings, and AI maturity across multiple assessments.",
         },
         {
-            title: "Executive Strategy Report",
+            title: "Strategic Roadmaps",
             description:
-                "Generate actionable implementation roadmaps and executive-level insights.",
+                "Receive structured 90-day, 6-month, and 12-month AI transformation plans tailored to your organization.",
         },
         {
-            title: "Interactive Dashboard",
+            title: "Executive Reports",
             description:
-                "Visualize key metrics, trends, and predictions through interactive analytics.",
+                "Generate consulting-style reports containing predictions, benchmarks, recommendations, and transformation strategies.",
+        },
+        {
+            title: "Predictive Business Outcomes",
+            description:
+                "Forecast revenue impact, cost savings, productivity gains, and overall AI efficiency before scaling investments.",
         },
     ];
 
@@ -33,11 +38,11 @@ export default function FeaturesSection() {
 
                 <div className="text-center mb-16">
                     <p className="text-green-400 uppercase tracking-[0.25em] text-sm mb-4">
-                        Key Features
+                        Core Capabilities
                     </p>
 
                     <h2 className="text-3xl md:text-5xl font-bold">
-                        Everything You Need To Evaluate AI Investments
+                        Everything You Need To Drive AI Transformation
                     </h2>
                 </div>
 

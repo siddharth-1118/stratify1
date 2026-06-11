@@ -1,61 +1,85 @@
 export default function StatsSection() {
-    const stats = [
+    const steps = [
         {
-            value: "500+",
-            label: "Companies Analyzed",
+            number: "01",
+            title: "Assess",
+            description:
+                "Provide information about AI adoption, investments, workforce readiness, and organizational maturity.",
         },
         {
-            value: "95%",
-            label: "Prediction Accuracy",
+            number: "02",
+            title: "Analyze",
+            description:
+                "Machine learning models evaluate business outcomes, ROI potential, and AI success probability.",
         },
         {
-            value: "30+",
-            label: "Industries Supported",
+            number: "03",
+            title: "Benchmark",
+            description:
+                "Compare your organization against industry averages, top performers, and similar companies.",
         },
         {
-            value: "20+",
-            label: "Countries Covered",
+            number: "04",
+            title: "Transform",
+            description:
+                "Receive strategic recommendations, roadmaps, and executive-ready reports for long-term success.",
         },
     ];
 
     return (
-        <section className="relative z-10 py-20 px-4">
-            <div className="text-center mb-12">
-                <p className="text-green-400 uppercase tracking-[0.25em] text-sm mb-4">
-                    Platform Insights
-                </p>
+        <section className="relative z-10 py-24 px-4">
+            <div className="max-w-7xl mx-auto">
 
-                <h2 className="text-3xl md:text-5xl font-bold">
-                    Trusted Across Industries
-                </h2>
-            </div>
-            <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                    {stats.map((stat) => (
+                {/* Section Header */}
+                <div className="text-center mb-16">
+                    <p className="text-green-400 uppercase tracking-[0.25em] text-sm mb-4">
+                        How It Works
+                    </p>
+
+                    <h2 className="text-3xl md:text-5xl font-bold">
+                        From Assessment To AI Transformation
+                    </h2>
+
+                    <p className="mt-6 text-zinc-400 max-w-3xl mx-auto text-base md:text-lg">
+                        Stratify guides organizations through a structured AI
+                        transformation journey, from initial assessment to
+                        strategic execution and measurable business outcomes.
+                    </p>
+                </div>
+
+                {/* Workflow Cards */}
+                <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+                    {steps.map((step) => (
                         <div
-                            key={stat.label}
+                            key={step.number}
                             className="
-                text-center
-                p-6
-                rounded-2xl
-                border border-zinc-800
+                p-8
+                rounded-3xl
+                border
+                border-zinc-800
                 bg-zinc-900/30
+                backdrop-blur-md
                 hover:border-green-500/50
                 hover:-translate-y-2
-                transition-all duration-300
-                backdrop-blur-md
+                transition-all
+                duration-300
               "
                         >
-                            <h3 className="text-3xl md:text-4xl font-bold text-green-400">
-                                {stat.value}
+                            <p className="text-green-400 text-3xl font-bold mb-6">
+                                {step.number}
+                            </p>
+
+                            <h3 className="text-2xl font-semibold mb-4">
+                                {step.title}
                             </h3>
 
-                            <p className="mt-2 text-zinc-400 text-sm md:text-base">
-                                {stat.label}
+                            <p className="text-zinc-400 leading-relaxed">
+                                {step.description}
                             </p>
                         </div>
                     ))}
                 </div>
+
             </div>
         </section>
     );

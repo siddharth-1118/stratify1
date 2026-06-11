@@ -1,53 +1,56 @@
 export default function Footer() {
     return (
-        <footer className="relative z-10 border-t border-zinc-800 py-12 px-4">
+        <footer className="relative z-10 border-t border-zinc-800 py-16 px-4">
             <div className="max-w-7xl mx-auto">
 
-                <div className="flex flex-col md:flex-row justify-between gap-10">
+                <div className="grid md:grid-cols-3 gap-12">
 
+                    {/* Brand */}
                     <div>
                         <h3 className="text-2xl font-bold mb-4">
-                            Corporate AI Strategy Advisor
+                            Stratify
                         </h3>
 
-                        <p className="text-zinc-400 max-w-md">
-                            AI-powered platform for evaluating AI investments,
-                            predicting business impact, and generating strategic
-                            recommendations.
+                        <p className="text-zinc-400 leading-relaxed max-w-md">
+                            AI transformation advisory platform helping
+                            organizations evaluate, benchmark, and improve
+                            AI adoption outcomes through predictive analytics
+                            and strategic guidance.
                         </p>
                     </div>
 
+                    {/* Platform */}
                     <div>
-                        <h4 className="font-semibold mb-4">
-                            Technology Stack
+                        <h4 className="font-semibold mb-4 text-green-400 uppercase tracking-wider text-sm">
+                            Platform
                         </h4>
 
-                        <ul className="space-y-2 text-zinc-400">
-                            <li>Next.js</li>
-                            <li>FastAPI</li>
-                            <li>Machine Learning</li>
-                            <li>Google Gemini</li>
+                        <ul className="space-y-3 text-zinc-400">
+                            <li>Assessment</li>
+                            <li>Benchmarking</li>
+                            <li>Progress Tracking</li>
+                            <li>Roadmaps</li>
+                            <li>Executive Reports</li>
                         </ul>
                     </div>
 
+                    {/* Company */}
                     <div>
-                        <h4 className="font-semibold mb-4">
-                            Core Outputs
+                        <h4 className="font-semibold mb-4 text-green-400 uppercase tracking-wider text-sm">
+                            Company
                         </h4>
 
-                        <ul className="space-y-2 text-zinc-400">
-                            <li>ROI Prediction</li>
-                            <li>Revenue Impact</li>
-                            <li>Cost Savings</li>
-                            <li>Productivity Gain</li>
-                            <li>AI Efficiency Score</li>
+                        <ul className="space-y-3 text-zinc-400">
+                            <li>About</li>
+                            <li>Contact</li>
+                            <li>Privacy Policy</li>
                         </ul>
                     </div>
 
                 </div>
 
                 <div className="mt-12 pt-8 border-t border-zinc-800 text-center text-zinc-500 text-sm">
-                    © 2026 Corporate AI Strategy Advisor. Built by the Web Development and AI/ML Team.
+                    © 2026 Stratify. All rights reserved.
                 </div>
 
             </div>
