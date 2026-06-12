@@ -19,7 +19,11 @@ async def signup(body: SignupRequest):
 
 @router.post("/login", response_model=TokenResponse)
 async def login(body: LoginRequest):
+    print("LOGIN HIT", body.email, body.password)  # add this
     user = await get_user_by_email(body.email)
+    print("USER:", user)
+    print("VERIFY:", verify_password(body.password, user["password"]) if user else False)
+    
     if not user or not verify_password(body.password, user["password"]):
         raise HTTPException(status_code=401, detail="Invalid credentials")
     

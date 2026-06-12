@@ -65,24 +65,26 @@ export default function LoginForm() {
 
                 <div className="relative">
 
-                    <input
-                        id="password"
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Enter your password"
-                        className="
-                w-full
-                px-4
-                py-3
-                pr-12
-                rounded-xl
-                border
-                border-zinc-700
-                bg-zinc-950
-                focus:outline-none
-                focus:border-green-500
-                transition-colors
-            "
-                    />
+                   <input
+    id="password"
+    type={showPassword ? "text" : "password"}
+    placeholder="Enter your password"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    className="
+        w-full
+        px-4
+        py-3
+        pr-12
+        rounded-xl
+        border
+        border-zinc-700
+        bg-zinc-950
+        focus:outline-none
+        focus:border-green-500
+        transition-colors
+    "
+/>
 
                     <button
                         type="button"
