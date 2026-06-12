@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiPost } from "@/lib/api";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function SignupForm() {
     const router = useRouter();
@@ -11,6 +12,8 @@ export default function SignupForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -80,32 +83,111 @@ export default function SignupForm() {
 
             {/* Password */}
             <div>
-                <label htmlFor="password" className="block text-sm font-medium mb-2">
+                <label
+                    htmlFor="password"
+                    className="block text-sm font-medium mb-2"
+                >
                     Password
                 </label>
-                <input
-                    id="password"
-                    type="password"
-                    placeholder="Create a password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-950 focus:outline-none focus:border-green-500 transition-colors"
-                />
-            </div>
 
+                <div className="relative">
+
+                    <input
+                        id="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Create a password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="
+                w-full
+                px-4
+                py-3
+                pr-12
+                rounded-xl
+                border
+                border-zinc-700
+                bg-zinc-950
+                focus:outline-none
+                focus:border-green-500
+                transition-colors
+            "
+                    />
+
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="
+                absolute
+                right-4
+                top-1/2
+                -translate-y-1/2
+                text-zinc-400
+                hover:text-green-400
+            "
+                    >
+                        {showPassword ? (
+                            <EyeOff size={18} />
+                        ) : (
+                            <Eye size={18} />
+                        )}
+                    </button>
+
+                </div>
+            </div>
             {/* Confirm Password */}
             <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium mb-2">
+                <label
+                    htmlFor="confirmPassword"
+                    className="block text-sm font-medium mb-2"
+                >
                     Confirm Password
                 </label>
-                <input
-                    id="confirmPassword"
-                    type="password"
-                    placeholder="Confirm your password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-950 focus:outline-none focus:border-green-500 transition-colors"
-                />
+
+                <div className="relative">
+
+                    <input
+                        id="confirmPassword"
+                        type={showConfirmPassword ? "text" : "password"}
+                        placeholder="Confirm your password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="
+                w-full
+                px-4
+                py-3
+                pr-12
+                rounded-xl
+                border
+                border-zinc-700
+                bg-zinc-950
+                focus:outline-none
+                focus:border-green-500
+                transition-colors
+            "
+                    />
+
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setShowConfirmPassword(!showConfirmPassword)
+                        }
+                        className="
+                absolute
+                right-4
+                top-1/2
+                -translate-y-1/2
+                text-zinc-400
+                hover:text-green-400
+            "
+                    >
+                        {showConfirmPassword ? (
+                            <EyeOff size={18} />
+                        ) : (
+                            <Eye size={18} />
+                        )}
+                    </button>
+
+                </div>
             </div>
 
             {/* Create Account Button */}

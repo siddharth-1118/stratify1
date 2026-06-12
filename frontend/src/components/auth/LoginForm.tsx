@@ -4,13 +4,16 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiPost } from "@/lib/api";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function LoginForm() {
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+
 
     const handleLogin = async () => {
         setError("");
@@ -53,17 +56,55 @@ export default function LoginForm() {
 
             {/* Password */}
             <div>
-                <label htmlFor="password" className="block text-sm font-medium mb-2">
+                <label
+                    htmlFor="password"
+                    className="block text-sm font-medium mb-2"
+                >
                     Password
                 </label>
-                <input
-                    id="password"
-                    type="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-950 focus:outline-none focus:border-green-500 transition-colors"
-                />
+
+                <div className="relative">
+
+                    <input
+                        id="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter your password"
+                        className="
+                w-full
+                px-4
+                py-3
+                pr-12
+                rounded-xl
+                border
+                border-zinc-700
+                bg-zinc-950
+                focus:outline-none
+                focus:border-green-500
+                transition-colors
+            "
+                    />
+
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="
+                absolute
+                right-4
+                top-1/2
+                -translate-y-1/2
+                text-zinc-400
+                hover:text-green-400
+                transition-colors
+            "
+                    >
+                        {showPassword ? (
+                            <EyeOff size={18} />
+                        ) : (
+                            <Eye size={18} />
+                        )}
+                    </button>
+
+                </div>
             </div>
 
             {/* Forgot Password */}
