@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import SliderInput from "./SliderInput";
 import ChatWindow from "@/components/chat/ChatWindow";
@@ -13,6 +13,7 @@ export default function AssessmentForm() {
     const [deploymentCount, setDeploymentCount] = useState(10);
     const [trainingHours, setTrainingHours] = useState(50);
     const [isChatOpen, setIsChatOpen] = useState(false);
+    const router = useRouter();
 
     const [inputsSoFar, setInputsSoFar] = useState({
         industry: "",
@@ -22,8 +23,35 @@ export default function AssessmentForm() {
         employee_training_hours: 50,
     });
 
-    const industries = ["Technology", "Healthcare", "Finance", "Retail", "Manufacturing"];
-    const countries = ["United States", "India", "Germany", "United Kingdom", "Japan"];
+    const industries = [
+        "Agriculture",
+        "Education",
+        "Energy",
+        "Financial Services",
+        "Healthcare",
+        "Logistics",
+        "Manufacturing",
+        "Retail",
+        "Technology",
+        "Telecom",
+    ];
+    const countries = [
+        "Australia",
+        "Brazil",
+        "Canada",
+        "China",
+        "France",
+        "Germany",
+        "India",
+        "Japan",
+        "Netherlands",
+        "Singapore",
+        "South Korea",
+        "Sweden",
+        "UAE",
+        "United Kingdom",
+        "United States",
+    ];
 
     return (
         <>
@@ -118,7 +146,19 @@ export default function AssessmentForm() {
                     />
                 </div>
 
-                <button className="w-full bg-green-500 text-black py-4 rounded-xl font-semibold hover:scale-[1.01] transition-all">
+                <button
+                    onClick={() => router.push("/report")}
+                    className="
+        w-full
+        bg-green-500
+        text-black
+        py-4
+        rounded-xl
+        font-semibold
+        hover:scale-[1.01]
+        transition-all
+    "
+                >
                     Generate Strategic Assessment
                 </button>
 
