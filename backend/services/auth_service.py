@@ -1,5 +1,6 @@
 from passlib.context import CryptContext
 from database import db
+from datetime import datetime
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -9,13 +10,14 @@ async def get_user_by_email(email: str):
 async def create_user(full_name: str, email: str, password: str):
     hashed = pwd_context.hash(password)
 
-    if not hashed.startswith("$2b$"):        # add this
-        raise Exception("Password hashing failed")  # add this
+    if not hashed.startswith("$2b$"):
+        raise Exception("Password hashing failed")
 
     result = await db.users.insert_one({
         "full_name": full_name,
         "email": email,
-        "password": hashed
+        "password": hashed,
+        "created_at": datetime.utcnow()
     })
     return str(result.inserted_id)
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, Send } from "lucide-react";
 
 interface Message {
@@ -23,10 +23,23 @@ export default function ChatWindow({ onClose, inputsSoFar = {}, report = {} }: C
     ]);
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
+    const [contextData, setContextData] = useState<Record<string, any>>({});
+
+    useEffect(() => {
+        // if inputsSoFar is empty, try reading from localStorage
+        if (Object.keys(inputsSoFar).length === 0) {
+            const stored = localStorage.getItem("assessmentData");
+            if (stored) {
+                setContextData(JSON.parse(stored));
+            }
+        } else {
+            setContextData(inputsSoFar);
+        }
+    }, [inputsSoFar]);
 
     const sendMessage = async () => {
         if (!input.trim()) return;
-        console.log("SENDING inputs_so_far:", inputsSoFar);
+        console.log("SENDING inputs_so_far:", contextData);
 
         const userMessage: Message = { role: "user", content: input };
         const updatedMessages = [...messages, userMessage];
@@ -44,7 +57,7 @@ export default function ChatWindow({ onClose, inputsSoFar = {}, report = {} }: C
                 },
                 body: JSON.stringify({
                     message: input,
-                    inputs_so_far: inputsSoFar,
+                    inputs_so_far: contextData,
                     report: report,
                     history: updatedMessages.slice(1).map((m) => ({
                         role: m.role === "assistant" ? "model" : "user",

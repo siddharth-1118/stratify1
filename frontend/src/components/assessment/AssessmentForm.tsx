@@ -24,33 +24,13 @@ export default function AssessmentForm() {
     });
 
     const industries = [
-        "Agriculture",
-        "Education",
-        "Energy",
-        "Financial Services",
-        "Healthcare",
-        "Logistics",
-        "Manufacturing",
-        "Retail",
-        "Technology",
-        "Telecom",
+        "Agriculture", "Education", "Energy", "Financial Services",
+        "Healthcare", "Logistics", "Manufacturing", "Retail", "Technology", "Telecom",
     ];
     const countries = [
-        "Australia",
-        "Brazil",
-        "Canada",
-        "China",
-        "France",
-        "Germany",
-        "India",
-        "Japan",
-        "Netherlands",
-        "Singapore",
-        "South Korea",
-        "Sweden",
-        "UAE",
-        "United Kingdom",
-        "United States",
+        "Australia", "Brazil", "Canada", "China", "France", "Germany",
+        "India", "Japan", "Netherlands", "Singapore", "South Korea",
+        "Sweden", "UAE", "United Kingdom", "United States",
     ];
 
     return (
@@ -147,17 +127,11 @@ export default function AssessmentForm() {
                 </div>
 
                 <button
-                    onClick={() => router.push("/report")}
-                    className="
-        w-full
-        bg-green-500
-        text-black
-        py-4
-        rounded-xl
-        font-semibold
-        hover:scale-[1.01]
-        transition-all
-    "
+                    onClick={() => {
+                        localStorage.setItem("assessmentData", JSON.stringify(inputsSoFar));
+                        router.push("/report");
+                    }}
+                    className="w-full bg-green-500 text-black py-4 rounded-xl font-semibold hover:scale-[1.01] transition-all"
                 >
                     Generate Strategic Assessment
                 </button>
@@ -177,14 +151,14 @@ export default function AssessmentForm() {
                 </button>
             </div>
 
-            {/* Chat Window with live form data */}
-            {isChatOpen && (
+            {/* Chat Window always mounted */}
+            <div className={isChatOpen ? "block" : "hidden"}>
                 <ChatWindow
                     onClose={() => setIsChatOpen(false)}
                     inputsSoFar={inputsSoFar}
                     report={{}}
                 />
-            )}
+            </div>
         </>
     );
 }
