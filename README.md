@@ -1,193 +1,75 @@
-# Stratify
+# Corporate AI Strategy Advisor
 
-## AI Transformation Intelligence Platform
+## Overview
 
-Stratify is an AI-powered corporate consulting platform that helps organizations evaluate, improve, and track the success of their AI transformation journey.
+Corporate AI Strategy Advisor is an AI-powered decision support platform that helps organizations evaluate the effectiveness of their AI investments and generate actionable business recommendations.
 
-Unlike traditional AI ROI calculators, Stratify combines machine learning, industry benchmarking, progress tracking, success probability analysis, and LLM-powered strategic recommendations to provide actionable guidance for AI adoption and business transformation.
-
-The platform is designed to function as a digital AI consulting service, helping organizations understand where they stand today, where they can improve, and how they can maximize the business value of their AI investments.
+Using machine learning models trained on corporate AI adoption data, the platform predicts key business outcomes and provides executive-level strategy reports powered by Large Language Models (LLMs).
 
 ---
 
 ## Problem Statement
 
-Organizations across industries are investing heavily in Artificial Intelligence initiatives. However, many struggle to answer critical questions such as:
+Many organizations invest heavily in AI initiatives without having a clear understanding of the expected return on investment (ROI), business impact, or implementation strategy.
 
-* Is our AI investment delivering measurable value?
-* How do we compare against industry leaders?
-* What factors are limiting our AI success?
-* What should we prioritize next?
-* How can we improve over time?
+This project aims to bridge that gap by providing:
 
-Most existing solutions provide either raw metrics or generic recommendations without offering strategic context.
-
-Stratify addresses this challenge by combining predictive analytics, benchmarking, and AI-generated consulting insights into a single decision-support platform.
+* ROI prediction
+* Business impact analysis
+* AI maturity assessment
+* Strategic recommendations
+* Executive-level AI adoption reports
 
 ---
 
-## Solution Overview
+## Proposed Solution
 
-Stratify enables organizations to:
-
-1. Assess their current AI adoption and maturity.
-2. Predict business outcomes using machine learning models.
-3. Evaluate AI success probability.
-4. Benchmark performance against industry standards.
-5. Track progress across multiple assessments.
-6. Receive personalized AI transformation roadmaps.
-7. Generate executive-ready consulting reports.
-
-The platform transforms AI evaluation from a one-time analysis into a continuous AI transformation advisory experience.
-
----
-
-## Core Features
-
-### Authentication & User Profiles
-
-* Secure Login & Signup
-* Persistent assessment history
-* Personalized recommendations
-* Progress tracking across assessments
-
----
-
-### AI Success Probability Analysis
-
-Predict the likelihood of achieving:
-
-* ROI targets
-* Cost-saving goals
-* Productivity improvements
-* Overall AI transformation success
-
-Provides executive-level indicators that simplify decision-making.
-
----
-
-### Predictive Business Outcomes
-
-Machine learning models forecast:
+The platform collects company-specific AI adoption information and uses machine learning models to predict business outcomes such as:
 
 * Revenue Impact
 * Cost Savings
 * Productivity Gain
-
-Derived metrics include:
-
 * ROI Percentage
 * AI Efficiency Score
 * Training Effectiveness Ratio
 
----
-
-### Industry Benchmarking
-
-Compare organizations against:
-
-* Industry averages
-* Top-performing companies
-* Similar organizations
-
-Example insights:
-
-* Position within industry rankings
-* Gap analysis against top performers
-* Improvement opportunities based on benchmark targets
+The predicted outputs are then processed by an LLM to generate detailed business recommendations and implementation roadmaps.
 
 ---
 
-### Progress Tracking
+## Key Features
 
-Track performance across multiple assessments:
+### ROI Prediction
 
-* ROI trends
-* Success probability trends
-* Productivity improvements
-* Cost savings growth
-* AI maturity progression
+Estimate expected return on AI investments.
 
-Transforms Stratify into a long-term advisory platform rather than a single-use assessment tool.
+### Business Impact Analysis
 
----
+Predict revenue impact, productivity gain, and operational cost savings.
 
-### AI Transformation Roadmaps
+### AI Recommendations
 
-Generate structured implementation plans including:
-
-#### 90-Day Plan
-
-Short-term optimization initiatives.
-
-#### 6-Month Plan
-
-Medium-term transformation objectives.
-
-#### 12-Month Plan
-
-Long-term AI scaling and governance strategies.
-
----
+Generate tailored AI adoption recommendations based on company characteristics.
 
 ### Executive Strategy Reports
 
-Generate downloadable consulting-style reports containing:
+Create detailed AI implementation plans and business roadmaps.
 
-* Executive Summary
-* Current Company Assessment
-* Predicted Business Outcomes
-* Industry Benchmarking
-* Success Probability Analysis
-* Key Opportunities & Risks
-* Transformation Roadmap
-* Historical Progress Comparisons
+### Interactive Dashboard
 
----
-
-## Machine Learning Outputs
-
-The machine learning models predict:
-
-* Revenue Impact
-* Cost Savings
-* Productivity Gain
-
----
-
-## Derived Metrics
-
-### ROI Percentage
-
-ROI = ((Revenue Impact - AI Investment) / AI Investment) × 100
-
-### AI Efficiency Score
-
-AI Efficiency Score = (Revenue Impact + Cost Savings) / AI Investment
-
-### Training Effectiveness Ratio
-
-Training Effectiveness Ratio = Productivity Gain / Employee AI Training Hours
+Visualize insights through modern charts and analytics.
 
 ---
 
 ## System Architecture
 
-```text
-User
-  ↓
-Next.js Frontend
-  ↓
-FastAPI Backend
-  ↓
-Machine Learning Prediction Engine
-  ↓
-Benchmarking Engine
-  ↓
-LLM Recommendation Engine
-  ↓
-Dashboard, Roadmaps & Executive Reports
-```
+User → Next.js Frontend → FastAPI Backend
+
+Backend → Machine Learning Models
+
+Backend → Gemini/OpenAI API
+
+ML Predictions + LLM Recommendations → Dashboard & Strategy Report
 
 ---
 
@@ -195,7 +77,7 @@ Dashboard, Roadmaps & Executive Reports
 
 ### Frontend
 
-* Next.js 16
+* Next.js
 * React
 * TypeScript
 * Tailwind CSS
@@ -214,12 +96,7 @@ Dashboard, Roadmaps & Executive Reports
 
 ### AI & LLM
 
-* Google Gemini API
-* OpenAI API (Optional)
-
-### Database
-
-* PostgreSQL / MongoDB
+* Google Gemini API / OpenAI API
 
 ### Deployment
 
@@ -230,91 +107,54 @@ Dashboard, Roadmaps & Executive Reports
 
 ## Dataset
 
-### Corporate AI Adoption Dataset
+Corporate AI Adoption and ROI Dataset (2015–2035)
 
-Key attributes include:
-
-* Industry
-* Country
-* AI Adoption Level
-* AI Investment
-* Automation Rate
-* Employee AI Training Hours
-* AI Maturity Score
-* Deployment Count
-* Revenue Impact
-* Cost Savings
-* Productivity Gain
-
-Dataset Size:
-
-~200,000 Records
-
-The dataset is used for:
-
-* Machine Learning Training
-* Industry Benchmarking
-* Success Probability Analysis
-* Comparative Insights
+Dataset Source:
+https://www.kaggle.com/datasets/hassangasem/corporate-ai-adoption-and-roi-dataset-20152035
 
 ---
 
 ## Project Workflow
 
-### Step 1: Assess
-
-The organization submits AI adoption and business information.
-
-### Step 2: Analyze
-
-Machine learning models predict business outcomes and success probability.
-
-### Step 3: Benchmark
-
-Performance is compared against industry standards and top-performing organizations.
-
-### Step 4: Transform
-
-The LLM generates recommendations, roadmaps, and executive-level strategic guidance.
-
-### Step 5: Track
-
-Assessment results are stored for future comparisons and long-term progress monitoring.
+1. Company submits AI adoption information.
+2. Backend validates inputs.
+3. ML models generate business predictions.
+4. ROI and performance metrics are calculated.
+5. LLM generates strategic recommendations.
+6. Results are displayed on an interactive dashboard.
+7. Executive strategy report is generated.
 
 ---
 
 ## Team Structure
 
-### Frontend Team
+### Web Development Team
 
-* User Interface Development
-* Dashboard Design
-* Authentication Flows
-* Data Visualization
-* Frontend Integration
+* Frontend Development
+* Backend Integration
+* UI/UX Design
+* Deployment
 
-### Backend Team
+### AI/ML Team
 
-* API Development
-* Database Management
-* Authentication Services
-* System Integration
-
-### Machine Learning Team
-
-* Data Processing
+* Data Preprocessing
 * Feature Engineering
 * Model Training
-* Outcome Prediction
-
-### LLM Team
-
-* Recommendation Generation
-* Roadmap Creation
-* Executive Report Generation
+* Recommendation Engine
+* LLM Integration
 
 ---
 
-## Vision
+## Project Status
 
-Stratify aims to become an intelligent AI transformation advisor that helps organizations move beyond measuring AI investments and toward continuously improving AI-driven business outcomes through data-driven insights, benchmarking, and strategic guidance.
+Current Phase: Phase 1 — Ideation, Architecture Design, and UI Development
+
+---
+
+## Future Scope
+
+* Real-time industry benchmarking
+* Multi-year ROI forecasting
+* PDF report export
+* AI implementation simulation
+* Enterprise dashboard analytics
