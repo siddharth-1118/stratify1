@@ -27,14 +27,46 @@ export interface AssessmentReport {
     report: {
         executiveSummary: string;
 
-        strengths: string[];
+        strengths: {
+            title: string;
+            explanation: string;
+            businessAdvantage: string;
+        }[];
 
-        risks: string[];
+        risks: {
+            title: string;
+            explanation: string;
+            consequence: string;
+        }[];
+
+        improvementOpportunities: {
+            problem: string;
+            businessImpact: string;
+            recommendedAction: string;
+            expectedOutcome: string;
+        }[];
 
         roadmap: {
-            phase1: string[];
-            phase2: string[];
-            phase3: string[];
+            phase1: {
+                title: string;
+                objective: string;
+                actions: string[];
+                expectedOutcome: string;
+            };
+
+            phase2: {
+                title: string;
+                objective: string;
+                actions: string[];
+                expectedOutcome: string;
+            };
+
+            phase3: {
+                title: string;
+                objective: string;
+                actions: string[];
+                expectedOutcome: string;
+            };
         };
     };
 }
