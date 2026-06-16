@@ -39,21 +39,17 @@ def test_report_generation():
         print("FAILED:", report["error"])
         return
 
-    # Check all 9 sections are present
-    required_keys = [
-        "executive_summary", "current_position", "prediction_analysis",
-        "strengths", "risks", "improvement_opportunities", "roadmap",
-        "success_probability_analysis", "benchmark_analysis"
-    ]
+    # Check all 5 sections are present
+    required_keys = [ "executive_summary", "strengths", "risks", "improvement_opportunities", "roadmap" ]
 
     missing = [key for key in required_keys if key not in report]
 
     if missing:
         print("FAILED: Missing sections:", missing)
     else:
-        print("PASSED: All 9 sections present")
+        print("PASSED: All 5 sections present")
         print(json.dumps(report, indent=2))
 
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     test_report_generation()

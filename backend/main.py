@@ -2,9 +2,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.auth import router as auth_router
 from routes.chat import router as chat_router
+from routes.assessment import router as assessment_router
+from routes.progress import router as progress_router
+from routes.report import router as report_router
 
 app = FastAPI(title="Stratify API")
 
+
+app.include_router(report_router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,6 +20,8 @@ app.add_middleware(
 
 app.include_router(auth_router)
 app.include_router(chat_router)
+app.include_router(assessment_router)
+app.include_router(progress_router)
 
 @app.get("/")
 def root():

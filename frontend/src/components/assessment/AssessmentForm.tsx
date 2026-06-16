@@ -4,6 +4,7 @@ import { useState } from "react";
 import SliderInput from "./SliderInput";
 import ChatWindow from "@/components/chat/ChatWindow";
 import { Bot } from "lucide-react";
+import { apiPostAuth } from "@/lib/api";
 
 export default function AssessmentForm() {
 
@@ -13,6 +14,8 @@ export default function AssessmentForm() {
     const [deploymentCount, setDeploymentCount] = useState(10);
     const [trainingHours, setTrainingHours] = useState(50);
     const [isChatOpen, setIsChatOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
     const router = useRouter();
 
     const [inputsSoFar, setInputsSoFar] = useState({
@@ -32,6 +35,26 @@ export default function AssessmentForm() {
         "India", "Japan", "Netherlands", "Singapore", "South Korea",
         "Sweden", "UAE", "United Kingdom", "United States",
     ];
+
+    const handleGenerateAssessment = async () => {
+        if (!inputsSoFar.industry || !inputsSoFar.country) {
+            setError("Please select an industry and country.");
+            return;
+        }
+        setLoading(true);
+        setError("");
+        try {
+            const data = await apiPostAuth("/assessment", inputsSoFar);
+            localStorage.setItem("assessmentData", JSON.stringify(inputsSoFar));
+            localStorage.setItem("assessmentResult", JSON.stringify(data));
+            localStorage.setItem("assessmentId", data.assessment_id);
+            router.push("/report");
+        } catch (err: any) {
+            setError("Failed to generate assessment. Try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <>
@@ -126,14 +149,16 @@ export default function AssessmentForm() {
                     />
                 </div>
 
+                {error && (
+                    <p className="text-red-400 text-sm text-center">{error}</p>
+                )}
+
                 <button
-                    onClick={() => {
-                        localStorage.setItem("assessmentData", JSON.stringify(inputsSoFar));
-                        router.push("/report");
-                    }}
-                    className="w-full bg-green-500 text-black py-4 rounded-xl font-semibold hover:scale-[1.01] transition-all"
+                    onClick={handleGenerateAssessment}
+                    disabled={loading}
+                    className="w-full bg-green-500 text-black py-4 rounded-xl font-semibold hover:scale-[1.01] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    Generate Strategic Assessment
+                    {loading ? "Generating Assessment..." : "Generate Strategic Assessment"}
                 </button>
 
             </div>

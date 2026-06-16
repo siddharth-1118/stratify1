@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { X, Send } from "lucide-react";
+import { apiPostAuth } from "@/lib/api";
 
 interface Message {
     role: "user" | "assistant";
@@ -26,12 +27,9 @@ export default function ChatWindow({ onClose, inputsSoFar = {}, report = {} }: C
     const [contextData, setContextData] = useState<Record<string, any>>({});
 
     useEffect(() => {
-        // if inputsSoFar is empty, try reading from localStorage
         if (Object.keys(inputsSoFar).length === 0) {
             const stored = localStorage.getItem("assessmentData");
-            if (stored) {
-                setContextData(JSON.parse(stored));
-            }
+            if (stored) setContextData(JSON.parse(stored));
         } else {
             setContextData(inputsSoFar);
         }
@@ -39,7 +37,6 @@ export default function ChatWindow({ onClose, inputsSoFar = {}, report = {} }: C
 
     const sendMessage = async () => {
         if (!input.trim()) return;
-        console.log("SENDING inputs_so_far:", contextData);
 
         const userMessage: Message = { role: "user", content: input };
         const updatedMessages = [...messages, userMessage];
@@ -48,25 +45,15 @@ export default function ChatWindow({ onClose, inputsSoFar = {}, report = {} }: C
         setLoading(true);
 
         try {
-            const token = localStorage.getItem("token");
-            const res = await fetch("http://localhost:8000/chat", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify({
-                    message: input,
-                    inputs_so_far: contextData,
-                    report: report,
-                    history: updatedMessages.slice(1).map((m) => ({
-                        role: m.role === "assistant" ? "model" : "user",
-                        content: m.content,
-                    })),
-                }),
+            const data = await apiPostAuth("/chat", {
+                message: input,
+                inputs_so_far: contextData,
+                report: report,
+                history: updatedMessages.slice(1).map((m) => ({
+                    role: m.role === "assistant" ? "model" : "user",
+                    content: m.content,
+                })),
             });
-
-            const data = await res.json();
             setMessages((prev) => [
                 ...prev,
                 { role: "assistant", content: data.reply },
