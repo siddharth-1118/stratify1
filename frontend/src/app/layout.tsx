@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Stratify — Corporate AI Strategy Advisor",
   description: "AI-powered decision support platform that helps organizations evaluate AI investments, predict ROI, and generate executive-level strategy recommendations.",
+  icons: {
+    icon: "/image.png",
+    shortcut: "/image.png",
+    apple: "/image.png",
+  },
   openGraph: {
     title: "Stratify — Corporate AI Strategy Advisor",
     description: "AI-powered decision support platform that helps organizations evaluate AI investments, predict ROI, and generate executive-level strategy recommendations.",
