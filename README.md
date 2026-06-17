@@ -1,79 +1,77 @@
-# Corporate AI Strategy Advisor
+# Stratify – Corporate AI Strategy Advisor
 
-## Overview
+Stratify is an AI-powered corporate consulting platform that helps organizations evaluate their AI readiness, predict business outcomes, benchmark against industry standards, and generate executive-level strategic transformation reports.
 
-Corporate AI Strategy Advisor is an AI-powered decision support platform that helps organizations evaluate the effectiveness of their AI investments and generate actionable business recommendations.
-
-Using machine learning models trained on corporate AI adoption data, the platform predicts key business outcomes and provides executive-level strategy reports powered by Large Language Models (LLMs).
+The platform combines Machine Learning, Large Language Models, Industry Benchmarking, and Progress Tracking to provide actionable insights for organizations pursuing AI transformation.
 
 ---
 
-## Problem Statement
+## Live Demo
 
-Many organizations invest heavily in AI initiatives without having a clear understanding of the expected return on investment (ROI), business impact, or implementation strategy.
+https://stratify-livid.vercel.app
 
-This project aims to bridge that gap by providing:
 
-* ROI prediction
-* Business impact analysis
-* AI maturity assessment
-* Strategic recommendations
-* Executive-level AI adoption reports
+## Features
 
----
+### AI Readiness Assessment
 
-## Proposed Solution
+Evaluate organizational AI maturity through key business and operational indicators.
 
-The platform collects company-specific AI adoption information and uses machine learning models to predict business outcomes such as:
+### Business Outcome Prediction
+
+Machine Learning models predict:
 
 * Revenue Impact
 * Cost Savings
 * Productivity Gain
-* ROI Percentage
-* AI Efficiency Score
-* Training Effectiveness Ratio
+* ROI (Return on Investment)
+* Success Probability
 
-The predicted outputs are then processed by an LLM to generate detailed business recommendations and implementation roadmaps.
+### Executive Report Generation
+
+Automatically generates consulting-style reports containing:
+
+* Executive Summary
+* Current AI Position
+* Prediction Analysis
+* Strengths Analysis
+* Risk Assessment
+* Improvement Opportunities
+* Strategic Roadmap
+* Success Probability Analysis
+* Industry Benchmark Narrative
+
+### Industry Benchmarking
+
+Compare organizational performance against:
+
+* Industry Averages
+* High Performing Organizations
+* AI Adoption Benchmarks
+
+### Strategic Roadmaps
+
+Receive phased implementation plans covering:
+
+* Foundation & Quick Wins
+* Scaling Initiatives
+* Optimization & Innovation
+
+### Progress Tracking
+
+Track historical assessments and monitor AI transformation progress over time.
+
+### AI Assistant
+
+Interact with Stratify AI to understand reports, recommendations, and strategic insights.
+
+### Authentication System
+
+Secure user registration and login functionality with protected routes.
 
 ---
 
-## Key Features
-
-### ROI Prediction
-
-Estimate expected return on AI investments.
-
-### Business Impact Analysis
-
-Predict revenue impact, productivity gain, and operational cost savings.
-
-### AI Recommendations
-
-Generate tailored AI adoption recommendations based on company characteristics.
-
-### Executive Strategy Reports
-
-Create detailed AI implementation plans and business roadmaps.
-
-### Interactive Dashboard
-
-Visualize insights through modern charts and analytics.
-
----
-
-## System Architecture
-
-User → Next.js Frontend → FastAPI Backend
-
-Backend → Machine Learning Models
-
-Backend → Gemini/OpenAI API
-
-ML Predictions + LLM Recommendations → Dashboard & Strategy Report
-
----
-
-## Technology Stack
+## Tech Stack
 
 ### Frontend
 
@@ -81,80 +79,165 @@ ML Predictions + LLM Recommendations → Dashboard & Strategy Report
 * React
 * TypeScript
 * Tailwind CSS
+* Recharts
 * Framer Motion
 
 ### Backend
 
 * FastAPI
 * Python
+* Pydantic
+* JWT Authentication
 
 ### Machine Learning
 
 * Scikit-Learn
-* Pandas
-* NumPy
+* XGBoost
+* CatBoost
+* Joblib
 
-### AI & LLM
+### Database
 
-* Google Gemini API / OpenAI API
+* MongoDB
+
+### AI & Report Generation
+
+* OpenAI API
+* Custom Recommendation Engine
+
+---
+
+## Project Architecture
+
+User Assessment Input
+↓
+Feature Engineering
+↓
+Machine Learning Models
+↓
+Predictions Generated
+↓
+Benchmark Analysis
+↓
+LLM Report Generation
+↓
+Interactive Dashboard & Reports
+
+---
+
+## ML Outputs
+
+The platform predicts:
+
+* Revenue Impact
+* Cost Savings
+* Productivity Gain
+* ROI
+* Success Probability
+
+Additional business metrics include:
+
+* AI Adoption Level
+* Automation Rate
+* AI Maturity Score
+
+---
+
+## Report Sections
+
+Each generated report contains:
+
+1. Executive Summary
+2. Current AI Position
+3. Prediction Analysis
+4. Strengths
+5. Risks & Weaknesses
+6. Improvement Opportunities
+7. Strategic Roadmap
+8. Success Probability Analysis
+9. Industry Benchmark Narrative
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Amritansu007/Stratify.git
+cd Stratify
+```
+
+### Backend Setup
+
+```bash
+cd backend
+
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
+
+uvicorn main:app --reload
+```
+
+Backend runs on:
+
+```text
+http://localhost:8000
+```
+
+---
+
+### Frontend Setup
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+Frontend runs on:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## Team
+
+### Frontend Development
+
+Amritansu Singh
+
+### Backend Development
+
+Rajarajan Kannan
+
+### Machine Learning
+
+Ayush Bidwai
+
+### LLM & Report Generation
+
+Baani Arora
 
 ### Deployment
 
-* Vercel (Frontend)
-* Render / Railway (Backend)
+Vooka Sai Siddharth
 
 ---
 
-## Dataset
+## Project Goal
 
-Corporate AI Adoption and ROI Dataset (2015–2035)
-
-Dataset Source:
-https://www.kaggle.com/datasets/hassangasem/corporate-ai-adoption-and-roi-dataset-20152035
+Stratify aims to bridge the gap between AI investments and measurable business outcomes by providing organizations with data-driven insights, predictive analytics, benchmarking capabilities, and strategic transformation guidance.
 
 ---
 
-## Project Workflow
+## License
 
-1. Company submits AI adoption information.
-2. Backend validates inputs.
-3. ML models generate business predictions.
-4. ROI and performance metrics are calculated.
-5. LLM generates strategic recommendations.
-6. Results are displayed on an interactive dashboard.
-7. Executive strategy report is generated.
-
----
-
-## Team Structure
-
-### Web Development Team
-
-* Frontend Development
-* Backend Integration
-* UI/UX Design
-* Deployment
-
-### AI/ML Team
-
-* Data Preprocessing
-* Feature Engineering
-* Model Training
-* Recommendation Engine
-* LLM Integration
-
----
-
-## Project Status
-
-Current Phase: Phase 1 — Ideation, Architecture Design, and UI Development
-
----
-
-## Future Scope
-
-* Real-time industry benchmarking
-* Multi-year ROI forecasting
-* PDF report export
-* AI implementation simulation
-* Enterprise dashboard analytics
+This project is developed for academic and educational purposes.
