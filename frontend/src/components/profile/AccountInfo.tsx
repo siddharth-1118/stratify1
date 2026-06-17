@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { apiGet } from "@/lib/api";
 
 interface UserInfo {
     full_name: string;
@@ -12,12 +13,7 @@ export default function AccountInfo() {
     const [user, setUser] = useState<UserInfo | null>(null);
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        fetch("http://localhost:8000/auth/me", {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then(res => res.json())
-            .then(data => setUser(data));
+        apiGet("/auth/me").then(data => setUser(data));
     }, []);
 
     const formatDate = (dateStr: string) => {

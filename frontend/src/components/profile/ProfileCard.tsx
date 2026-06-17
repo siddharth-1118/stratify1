@@ -1,17 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { apiGet } from "@/lib/api";
 
 export default function ProfileCard() {
     const [user, setUser] = useState<{ full_name: string; email: string } | null>(null);
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        fetch("http://localhost:8000/auth/me", {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then(res => res.json())
-            .then(data => setUser(data));
+        apiGet("/auth/me").then(data => setUser(data));
     }, []);
 
     const initials = user?.full_name

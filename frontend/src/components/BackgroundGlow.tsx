@@ -23,6 +23,7 @@ export default function BackgroundGlow() {
 
         blur-[140px]
         z-0
+        
       "
     />
   );
