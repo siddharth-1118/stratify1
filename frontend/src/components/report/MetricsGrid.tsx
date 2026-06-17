@@ -8,11 +8,11 @@ export default function MetricsGrid({ data }: Props) {
     const metrics = [
         {
             title: "Cost Savings",
-            value: `$${Math.round(data.cost_savings ?? 0).toLocaleString()}`,
+            value: `$${Math.round(data.cost_savings ?? 0).toLocaleString("en-US")}`,
         },
         {
             title: "Revenue Impact",
-            value: `$${Math.round(data.revenue_impact ?? 0).toLocaleString()}`,
+            value: `$${Math.round(data.revenue_impact ?? 0).toLocaleString("en-US")}`,
         },
         {
             title: "Productivity Gain",

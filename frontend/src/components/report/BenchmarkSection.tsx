@@ -59,7 +59,7 @@ export default function BenchmarkSection({ data }: Props) {
                     </div>
                     <div className="p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700">
                         <p className="text-zinc-400 text-xs mb-1">Avg Cost Savings</p>
-                        <p className="text-green-400 font-bold">${Math.round(benchmark.avg_cost_savings).toLocaleString()}</p>
+                        <p className="text-green-400 font-bold">$${Math.round(benchmark.avg_cost_savings).toLocaleString("en-US")}</p>
                     </div>
                     <div className="p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700">
                         <p className="text-zinc-400 text-xs mb-1">Avg AI Maturity</p>
@@ -67,7 +67,7 @@ export default function BenchmarkSection({ data }: Props) {
                     </div>
                     <div className="p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700">
                         <p className="text-zinc-400 text-xs mb-1">Companies Compared</p>
-                        <p className="text-green-400 font-bold">{benchmark.sample_size?.toLocaleString()}</p>
+                        <p className="text-green-400 font-bold">{benchmark.sample_size?.toLocaleString("en-US")}</p>
                     </div>
                 </div>
             )}

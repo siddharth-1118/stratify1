@@ -43,7 +43,7 @@ export default function ImpactChart({ data }: Props) {
                         <XAxis dataKey="metric" stroke="#a1a1aa" />
                         <YAxis stroke="#a1a1aa" />
                         <Tooltip
-                            formatter={(value) => `$${Number(value).toLocaleString()}`}
+                            formatter={(value) => `$${Number(value).toLocaleString("en-US")}`}
                             cursor={{ fill: "transparent" }}
                             contentStyle={{ backgroundColor: "#18181b", border: "1px solid #27272a", borderRadius: "12px", color: "#ffffff" }}
                             labelStyle={{ color: "#ffffff" }}
