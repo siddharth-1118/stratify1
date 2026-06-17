@@ -36,6 +36,7 @@ export default function SliderInput({
                         setValue(Number(e.target.value))
                     }
                     className="flex-1 accent-green-500"
+                    suppressHydrationWarning
                 />
 
                 <input
@@ -64,6 +65,7 @@ export default function SliderInput({
                         bg-zinc-950
                         text-center
                     "
+                    suppressHydrationWarning
                 />
 
             </div>
