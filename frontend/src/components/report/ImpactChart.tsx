@@ -52,7 +52,7 @@ export default function ImpactChart({ data }: Props) {
                             <LabelList
                                 dataKey="value"
                                 position="top"
-                                formatter={(value: number) => `$${(Number(value) / 1000000).toFixed(1)}M`}
+                                formatter={(label) => `$${(Number(label) / 1000000).toFixed(1)}M`}
                                 fill="#ffffff"
                             />
                         </Bar>

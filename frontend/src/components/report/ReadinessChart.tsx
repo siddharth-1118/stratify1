@@ -47,7 +47,7 @@ export default function ReadinessChart({ data }: Props) {
                         <XAxis dataKey="metric" stroke="#a1a1aa" />
                         <YAxis domain={[0, 100]} stroke="#a1a1aa" />
                         <Tooltip
-                            formatter={(value) => `${value}%`}
+                            formatter={(label) => `${label}%`}
                             cursor={{ fill: "transparent" }}
                             contentStyle={{ backgroundColor: "#18181b", border: "1px solid #27272a", borderRadius: "12px", color: "#ffffff" }}
                             labelStyle={{ color: "#ffffff" }}
@@ -56,7 +56,7 @@ export default function ReadinessChart({ data }: Props) {
                             <LabelList
                                 dataKey="value"
                                 position="top"
-                                formatter={(value: number) => `${value}%`}
+                                formatter={(label) => `${label}%`}
                                 fill="#ffffff"
                             />
                         </Bar>
