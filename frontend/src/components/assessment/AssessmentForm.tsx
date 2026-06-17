@@ -50,7 +50,6 @@ export default function AssessmentForm() {
                                     setInputsSoFar(prev => ({ ...prev, industry: e.target.value }));
                                 }}
                                 className="w-full px-4 py-3 pr-12 rounded-xl bg-zinc-950 border border-zinc-700 appearance-none focus:outline-none focus:border-green-500"
-                                suppressHydrationWarning
                             >
                                 <option value="">Select Industry</option>
                                 {industries.map((i) => <option key={i} value={i}>{i}</option>)}
@@ -70,7 +69,6 @@ export default function AssessmentForm() {
                                     setInputsSoFar(prev => ({ ...prev, country: e.target.value }));
                                 }}
                                 className="w-full px-4 py-3 pr-12 rounded-xl bg-zinc-950 border border-zinc-700 appearance-none focus:outline-none focus:border-green-500"
-                                suppressHydrationWarning
                             >
                                 <option value="">Select Country</option>
                                 {countries.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -134,7 +132,6 @@ export default function AssessmentForm() {
                         router.push("/report");
                     }}
                     className="w-full bg-green-500 text-black py-4 rounded-xl font-semibold hover:scale-[1.01] transition-all"
-                    suppressHydrationWarning
                 >
                     Generate Strategic Assessment
                 </button>
@@ -149,7 +146,6 @@ export default function AssessmentForm() {
                 <button
                     onClick={() => setIsChatOpen(!isChatOpen)}
                     className="w-16 h-16 rounded-full bg-green-500 text-black flex items-center justify-center shadow-lg shadow-green-500/30 hover:scale-110 transition-all duration-300"
-                    suppressHydrationWarning
                 >
                     <Bot size={28} strokeWidth={2.2} />
                 </button>

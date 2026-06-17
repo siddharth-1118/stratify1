@@ -63,7 +63,6 @@ export default function SignupForm() {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-950 focus:outline-none focus:border-green-500 transition-colors"
-                    suppressHydrationWarning
                 />
             </div>
 
@@ -79,7 +78,6 @@ export default function SignupForm() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-950 focus:outline-none focus:border-green-500 transition-colors"
-                    suppressHydrationWarning
                 />
             </div>
 
@@ -113,7 +111,6 @@ export default function SignupForm() {
                 focus:border-green-500
                 transition-colors
             "
-                        suppressHydrationWarning
                     />
 
                     <button
@@ -127,7 +124,6 @@ export default function SignupForm() {
                 text-zinc-400
                 hover:text-green-400
             "
-                        suppressHydrationWarning
                     >
                         {showPassword ? (
                             <EyeOff size={18} />
@@ -168,7 +164,6 @@ export default function SignupForm() {
                 focus:border-green-500
                 transition-colors
             "
-                        suppressHydrationWarning
                     />
 
                     <button
@@ -184,7 +179,6 @@ export default function SignupForm() {
                 text-zinc-400
                 hover:text-green-400
             "
-                        suppressHydrationWarning
                     >
                         {showConfirmPassword ? (
                             <EyeOff size={18} />
@@ -202,7 +196,6 @@ export default function SignupForm() {
                 onClick={handleSignup}
                 disabled={loading}
                 className="w-full bg-green-500 text-black py-3 rounded-xl font-semibold hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                suppressHydrationWarning
             >
                 {loading ? "Creating Account..." : "Create Account"}
             </button>
