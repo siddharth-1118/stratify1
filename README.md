@@ -226,7 +226,7 @@ Ayush Bidwai
 
 Baani Arora
 
-### Deployment
+### Deployment and Documentation
 
 Vooka Sai Siddharth
 
