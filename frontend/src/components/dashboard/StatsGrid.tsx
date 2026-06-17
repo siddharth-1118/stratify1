@@ -9,27 +9,25 @@ export default function StatsGrid() {
     useEffect(() => {
         apiGet("/progress")
             .then(data => setAssessments(data.assessments ?? []))
-            .catch(() => {});
+            .catch(() => { });
     }, []);
 
     const count = assessments.length;
     const avgSuccess = count > 0
         ? Math.round(assessments.reduce((sum, a) => sum + (a.result?.success_probability ?? 0), 0) / count)
         : null;
-    const avgBenchmark = count > 0
-        ? Math.round(assessments.reduce((sum, a) => sum + (a.benchmark?.benchmark?.avg_roi ?? 0), 0) / count)
-        : null;
+
 
     const stats = [
         { title: "Assessments", value: count.toString() },
         { title: "Success Probability", value: avgSuccess !== null ? `${avgSuccess}%` : "--" },
         { title: "Reports Generated", value: count.toString() },
-        { title: "Benchmark Score", value: avgBenchmark !== null ? `${avgBenchmark}%` : "--" },
+
     ];
 
     return (
         <section className="mb-10">
-            <div className="grid md:grid-cols-4 gap-5">
+            <div className="grid md:grid-cols-3 gap-6">
                 {stats.map((stat) => (
                     <div
                         key={stat.title}
