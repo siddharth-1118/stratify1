@@ -51,6 +51,7 @@ export default function LoginForm() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-950 focus:outline-none focus:border-green-500 transition-colors"
+                    suppressHydrationWarning
                 />
             </div>
 
@@ -84,6 +85,7 @@ export default function LoginForm() {
         focus:border-green-500
         transition-colors
     "
+    suppressHydrationWarning
 />
 
                     <button
@@ -98,6 +100,7 @@ export default function LoginForm() {
                 hover:text-green-400
                 transition-colors
             "
+                        suppressHydrationWarning
                     >
                         {showPassword ? (
                             <EyeOff size={18} />
@@ -122,6 +125,7 @@ export default function LoginForm() {
                 onClick={handleLogin}
                 disabled={loading}
                 className="w-full bg-green-500 text-black py-3 rounded-xl font-semibold hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                suppressHydrationWarning
             >
                 {loading ? "Logging in..." : "Login"}
             </button>
